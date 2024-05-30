@@ -1,0 +1,442 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>为什么不用网就能ping127.0.0.1 | Taotaozi-Blog</title><meta name="author" content="Orange🍊🍊🍊"><meta name="copyright" content="Orange🍊🍊🍊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="🥧本文汇总为作业一天学习总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么不用网就能ping127.0.0.1">
+<meta property="og:url" content="http://buhaotao.com/2024/05/30/2024-5-30-127-0-0-1%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E4%B8%8D%E7%94%A8%E7%BD%91%E5%B0%B1%E8%83%BDping/index.html">
+<meta property="og:site_name" content="Taotaozi-Blog">
+<meta property="og:description" content="🥧本文汇总为作业一天学习总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://source.fomal.cc/img/default_cover_5.webp">
+<meta property="article:published_time" content="2024-05-30T01:19:03.000Z">
+<meta property="article:modified_time" content="2024-05-30T01:19:03.000Z">
+<meta property="article:author" content="Orange🍊🍊🍊">
+<meta property="article:tag" content="八股文">
+<meta property="article:tag" content="计网">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://source.fomal.cc/img/default_cover_5.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://buhaotao.com/2024/05/30/2024-5-30-127-0-0-1%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E4%B8%8D%E7%94%A8%E7%BD%91%E5%B0%B1%E8%83%BDping/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体中文","cht_to_chs":"你已切换为简体中文","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-right"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '为什么不用网就能ping127.0.0.1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-30 09:19:03'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/universe.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/%5Cimages%5C%E9%BB%91%E5%A1%94.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://source.fomal.cc/img/default_cover_5.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="Taotaozi-Blog"><span class="site-name">Taotaozi-Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">为什么不用网就能ping127.0.0.1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-30T01:19:03.000Z" title="发表于 2024-05-30 09:19:03">2024-05-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-30T01:19:03.000Z" title="更新于 2024-05-30 09:19:03">2024-05-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9B%B6%E7%A2%8E/">零碎</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="为什么不用网就能ping127.0.0.1"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="硬核图解！断网了，还能ping通-127-0-0-1-吗？为什么？"><a href="#硬核图解！断网了，还能ping通-127-0-0-1-吗？为什么？" class="headerlink" title="硬核图解！断网了，还能ping通 127.0.0.1 吗？为什么？"></a>硬核图解！断网了，还能ping通 127.0.0.1 吗？为什么？</h1><p>原创 小白 <a href="javascript:void(0">小白debug</a>;) <em>2021-06-16 09:00</em></p>
+<p>你<strong>女神爱不爱你</strong>，你问她，她可能不会告诉你。</p>
+<p>但<strong>网通不通</strong>，你 <code>ping</code> 一下就知道了。</p>
+<p>可能看到标题，你就知道答案了，但是你了解背后的原因吗？那如果把 <code>127.0.0.1</code> 换成 <code>0.0.0.0</code> 或 <code>localhost</code> 会怎么样呢？你知道这几个<code>IP</code>有什么区别吗？</p>
+<p>以前面试的时候就遇到过这个问题，大家看个动图了解下面试官和我当时的场景，求当时小白的心里阴影面积。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_gif/FmVWPHrDdnmz3VSM4JH6FE0VFtydTmORTBibRrFfn1mfX9SU1hciciahTZdCFfDRRdasytF7NLattxdibdXcp8VOWA/640?wx_fmt=gif&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1" alt="图片"></p>
+<p>话不多说，我们直接开车。</p>
+<p>拔掉网线，断网。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_jpg/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3aSoMibKbQFRGpTqNbMaaPUxY1icSvhv0rel4R4O3ib99hQdJ1P7AYHBplQ/640?wx_fmt=jpeg&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>然后在控制台输入<code>ping 127.0.0.1</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ ping 127.0.0.1</span><br><span class="line">PING 127.0.0.1 (127.0.0.1): 56 data bytes</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.080 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.093 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.074 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.079 ms</span><br><span class="line">64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.079 ms</span><br><span class="line">^C</span><br><span class="line">--- 127.0.0.1 ping statistics ---</span><br><span class="line">5 packets transmitted, 5 packets received, 0.0% packet loss</span><br><span class="line">round-trip min/avg/max/stddev = 0.074/0.081/0.093/0.006 ms</span><br></pre></td></tr></table></figure>
+<p>说明，拔了网线，<code>ping 127.0.0.1</code> 是<strong>能ping通的</strong>。</p>
+<p>其实这篇文章看到这里，标题前半个问题已经被回答了。但是我们可以再想深一点。</p>
+<p>为什么断网了还能 <code>ping</code> 通 <code>127.0.0.1</code> 呢？</p>
+<p><strong>这能说明你不用交网费就能上网吗？</strong></p>
+<p><strong>不能。</strong></p>
+<p>首先我们需要进入基础科普环节。</p>
+<p>不懂的同学看了就懂了，懂的看了就当查漏补缺吧。</p>
+<h3 id="什么是127-0-0-1"><a href="#什么是127-0-0-1" class="headerlink" title="什么是127.0.0.1"></a>什么是127.0.0.1</h3><p>首先，这是个 <code>IPV4</code> 地址。</p>
+<p><code>IPV4</code> 地址有 <code>32</code> 位，一个字节有 <code>8</code> 位，共 <code>4</code> 个字节。</p>
+<p>其中<strong>127 开头的都属于回环地址</strong>，也是 <code>IPV4</code> 的特殊地址，没什么道理，就是人为规定的。</p>
+<p>而<code>127.0.0.1</code>是<strong>众多</strong>回环地址中的一个。之所以不是 <code>127.0.0.2</code> ，而是 <code>127.0.0.1</code>，是因为源码里就是这么定义的，也没什么道理。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/* Address to loopback in software to local host.  */</span><br><span class="line">#define    INADDR_LOOPBACK     0x7f000001  /* 127.0.0.1   */</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3al814qA9PQccVHwXclglX7Vm2Ro1aN6rj2Mzom2WOPB9Nh5tOiaZeshg/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">回环地址</p>
+<p><code>IPv4</code> 的地址是 <code>32</code> 位的，2的32次方，大概是<code>40+亿</code>。地球光人口就76亿了，40亿IP这点量，<strong>塞牙缝都不够</strong>，实际上<strong>IP也确实用完</strong>了。</p>
+<p>所以就有了<code>IPV6</code>， <code>IPv6</code> 的地址是 <code>128</code> 位的，大概是2的128次方≈<strong>10的38次方</strong>。据说地球的沙子数量大概是 <strong>10的23次方</strong>，所以IPV6的IP可以认为用不完。</p>
+<p>IPV4以8位一组，每组之间用 <strong>.</strong> 号隔开。</p>
+<p>IPV6就以16位为一组，每组之间用 <strong>:</strong> 号隔开。如果全是0，那么可以省略不写。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3aDribNWH3v6rqs4qJgTpg835BwUW1Eg2NwJBjEbNMhQpjeSfdlN1gSjw/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">ipv6回环地址</p>
+<p>在IPV4下的回环地址是 <code>127.0.0.1</code>，在<code>IPV6</code>下，表达为 <code>::1</code> 。中间把<strong>连续的0</strong>给省略了，之所以不是<strong>7个 冒号</strong>，而是<strong>2个冒号:</strong> ， 是因为一个 IPV6 地址中<strong>只允许出现⼀次两个连续的冒号</strong>。</p>
+<blockquote>
+<p>多说一句：在IPV4下用的是 <strong>ping 127.0.0.1</strong> 命令。在IPV6下用的是 <strong>ping6  ::1</strong> 命令。</p>
+</blockquote>
+<h3 id="什么是-ping"><a href="#什么是-ping" class="headerlink" title="什么是 ping"></a>什么是 ping</h3><p>ping 是应用层命令，可以理解为它跟游戏或者聊天软件属于同一层。只不过聊天软件可以收发消息，还能点个赞什么的，有很多复杂的功能。而 ping 作为一个小软件，它的功能比较简单，就是<strong>尝试</strong>发送一个小小的消息到目标机器上，判断目的机器是否<strong>可达</strong>，其实也就是判断目标机器网络是否能连通。</p>
+<p>ping应用的底层，用的是网络层的<strong>ICMP协议</strong>。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3abT1NHNLtfz0KV8jBOVDFtaEb7ZqpQ48XEzZ1eAnbXrDXmXPuMelJ6A/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">IP和ICMP和Ping所在分层</p>
+<p>虽然ICMP协议和IP协议<strong>都属于网络层协议</strong>，但其实<strong>ICMP也是利用了IP协议进行消息的传输</strong>。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3anicOgzO4NDtrmN7NTibbR3Ze5DUzjDLDEDStBX0WL4A9iaL0h5gq28Xqw/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">ip和icmp的关系</p>
+<p>所以，大家在这里完全可以简单的理解为 ping 某个IP 就是往某个IP地址发个消息。</p>
+<h3 id="TCP发数据和ping的区别"><a href="#TCP发数据和ping的区别" class="headerlink" title="TCP发数据和ping的区别"></a>TCP发数据和ping的区别</h3><p>一般情况下，我们会使用 TCP 进行网络数据传输，那么我们可以看下它和 ping 的区别。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3aTZVia58LjFhfprOVOg8y4WclVdG4Y7tD8IGhPQia65nPey5TDWARgGNA/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">ping和普通发消息的关系</p>
+<p>ping和其他应用层软件都属于<strong>应用层</strong>。</p>
+<p>那么我们横向对比一下，比方说聊天软件，如果用的是TCP的方式去发送消息。</p>
+<p>为了发送消息，那就得先知道往哪发。linux里万物皆文件，那你要发消息的目的地，也是个文件，这里就引出了socket 的概念。</p>
+<p>要使用 <code>socket</code> , 那么首先需要创建它。</p>
+<p>在 TCP 传输中创建的方式是  <code>socket(AF_INET, SOCK_STREAM, 0);</code>，其中 <code>AF_INET</code> 表示将使用 IPV4 里 <strong>host:port</strong> 的方式去解析待会你输入的网络地址。<code>SOCK_STREAM</code> 是指使用面向字节流的 TCP 协议，<strong>工作在传输层</strong>。</p>
+<p>创建好了 <code>socket</code> 之后，就可以愉快的把要传输的数据写到这个文件里。调用 socket 的<code>sendto</code>接口的过程中进程会从<strong>用户态进入到内核态</strong>，最后会调用到 <code>sock_sendmsg</code> 方法。</p>
+<p>然后进入传输层，带上<code>TCP</code>头。网络层带上<code>IP</code>头，数据链路层带上 <code>MAC</code>头等一系列操作后。进入网卡的<strong>发送队列 ring buffer</strong> ，顺着网卡就发出去了。</p>
+<p>回到 <code>ping</code> ， 整个过程也基本跟 <code>TCP</code> 发数据类似，差异的地方主要在于，创建 <code>socket</code> 的时候用的是  <code>socket(AF_INET,SOCK_RAW,IPPROTO_ICMP)</code>，<code>SOCK_RAW</code> 是原始套接字 ，<strong>工作在网络层</strong>， 所以构建<code>ICMP</code>（网络层协议）的数据，是再合适不过了。ping 在进入内核态后最后也是调用的  <code>sock_sendmsg</code> 方法，进入到网络层后加上<strong>ICMP和IP头</strong>后，数据链路层加上<strong>MAC头</strong>，也是顺着网卡发出。因此 本质上ping 跟 普通应用发消息 在程序流程上没太大差别。</p>
+<p>这也解释了<strong>为什么当你发现怀疑网络有问题的时候，别人第一时间是问你能ping通吗？</strong>因为可以简单理解为ping就是自己组了个数据包，让系统按着其他软件发送数据的路径往外发一遍，能通的话说明其他软件发的数据也能通。</p>
+<h3 id="为什么断网了还能-ping-通-127-0-0-1"><a href="#为什么断网了还能-ping-通-127-0-0-1" class="headerlink" title="为什么断网了还能 ping 通 127.0.0.1"></a>为什么断网了还能 ping 通 127.0.0.1</h3><p>前面提到，有网的情况下，ping 最后是<strong>通过网卡</strong>将数据发送出去的。</p>
+<p>那么断网的情况下，网卡已经不工作了，ping 回环地址却一切正常，我们可以看下这种情况下的工作原理。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3a3njA3Ysh4YWH7owWreIy81oOqpAr5vOfdp5QkPjPIiarZ5Tkg7MZUYQ/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">ping回环地址</p>
+<p>从应用层到传输层再到网络层。这段路径跟ping外网的时候是几乎是一样的。到了网络层，系统会根据目的IP，在路由表中获取对应的<strong>路由信息</strong>，而这其中就包含选择<strong>哪个网卡</strong>把消息发出。</p>
+<p>当发现<strong>目标IP是外网IP</strong>时，会从”真网卡”发出。</p>
+<p>当发现<strong>目标IP是回环地址</strong>时，就会选择<strong>本地网卡</strong>。</p>
+<p>本地网卡，其实就是个<strong>“假网卡”</strong>，它不像”真网卡”那样有个<code>ring buffer</code>什么的，”假网卡”会把数据推到一个叫 <code>input_pkt_queue</code> 的 <strong>链表</strong> 中。这个链表，其实是所有网卡共享的，上面挂着发给本机的各种消息。消息被发送到这个链表后，会再触发一个<strong>软中断</strong>。</p>
+<p>专门处理软中断的工具人<strong>“ksoftirqd”</strong> （这是个<strong>内核线程</strong>），它在收到软中断后就会立马去链表里把消息取出，然后顺着数据链路层、网络层等层层往上传递最后给到应用程序。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3afmibgQsA3bI679xIyczXM0jyraZKZ5G7t0XlW9h6hiapNwVbDgqQhugg/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">工具人ksoftirqd</p>
+<p>ping 回环地址和<strong>通过TCP等各种协议发送数据到回环地址</strong>都是走这条路径。整条路径从发到收，都没有经过”真网卡”。<strong>之所以127.0.0.1叫本地回环地址，可以理解为，消息发出到这个地址上的话，就不会出网络，在本机打个转就又回来了。</strong>所以断网，依然能 <code>ping</code> 通 <code>127.0.0.1</code>。</p>
+<h3 id="ping回环地址和ping本机地址有什么区别"><a href="#ping回环地址和ping本机地址有什么区别" class="headerlink" title="ping回环地址和ping本机地址有什么区别"></a>ping回环地址和ping本机地址有什么区别</h3><p>我们在mac里执行 <code>ifconfig</code> 。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig</span><br><span class="line">lo0: flags=8049&lt;UP,LOOPBACK,RUNNING,MULTICAST&gt; mtu 16384</span><br><span class="line">    inet 127.0.0.1 netmask 0xff000000</span><br><span class="line">    ...</span><br><span class="line">en0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500</span><br><span class="line">    inet 192.168.31.6 netmask 0xffffff00 broadcast 192.168.31.255</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>能看到 <strong>lo0</strong>，表示本地回环接口，对应的地址，就是我们前面提到的 <strong>127.0.0.1</strong> ，也就是<strong>回环地址</strong>。</p>
+<p>和 <strong>eth0</strong>，表示本机第一块网卡，对应的IP地址是<strong>192.168.31.6</strong>，管它叫<strong>本机IP</strong>。</p>
+<p>之前一直认为ping本机IP的话会通过”真网卡”出去，然后遇到第一个路由器，再发回来到本机。</p>
+<p>为了验证这个说法，可以进行抓包，但结果跟上面的说法并不相同。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3agic6UsRDGrWYfCMo7p223ZtXm6apIbyAZPRowPqZB4bO4cnMkUj5A8Q/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">ping 127.0.0.1</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3aSicrwP5HXdxbNNhDqfqpOS71BeR6g884B3diby73jI5quYHnia570QTiaw/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">ping 本机地址</p>
+<p>可以看到 ping 本机IP 跟 ping 回环地址一样，相关的网络数据，都是走的  <strong>lo0</strong>，本地回环接口，也就是前面提到的<strong>“假网卡”</strong>。</p>
+<p>只要走了本地回环接口，那数据都不会发送到网络中，在本机网络协议栈中兜一圈，就发回来了。因此 <strong>ping回环地址和ping本机地址没有区别</strong>。</p>
+<h3 id="127-0-0-1-和-localhost-以及-0-0-0-0-有区别吗"><a href="#127-0-0-1-和-localhost-以及-0-0-0-0-有区别吗" class="headerlink" title="127.0.0.1 和 localhost 以及 0.0.0.0 有区别吗"></a>127.0.0.1 和 localhost 以及 0.0.0.0 有区别吗</h3><p>回到文章开头动图里的提问，算是面试八股文里的老常客了。</p>
+<p>以前第一次用 <code>nginx</code> 的时候，发现用这几个 <code>IP</code>，都能正常访问到 <code>nginx</code> 的欢迎网页。一度认为这几个 <code>IP</code> 都是一样的。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3a4HXbZDuYibw3Euxwj6ibKicR0icdckiaiaVJJQDgYuqJ1YmmIIcVic8aOJagQ/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">访问127.0.0.1:80</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3agzs7rgSa7gsPeWV9Oia0dbmA9a5BKey8mezQIWTDdhgpNGKjicIoUb9A/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">访问localhost:80</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3ad0Id4KHEoKcRcVOaaKa0bgyQtkf5vftxHcZvjaCqibRbSLQRAI95JmA/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">访问0.0.0.0:80</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_png/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3aAjdkpJato7kYfIrsRtPltQwtibpP2icXFyEQYwHv4Ae8QYotv971FWEA/640?wx_fmt=png&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片">访问本机的IP地址</p>
+<p>但本质上还是有些区别的。</p>
+<p>首先 <code>localhost</code> 就不叫 <code>IP</code>，它是一个域名，就跟 <code>&quot;baidu.com&quot;</code>,是一个形式的东西，只不过默认会把它解析为 <code>127.0.0.1</code> ，当然这可以在 <code>/etc/hosts</code> 文件下进行修改。</p>
+<p>所以默认情况下，使用 <code>localhost</code> 跟使用  <code>127.0.0.1</code> 确实是没区别的。</p>
+<p>其次就是 <code>0.0.0.0</code>，执行 ping 0.0.0.0  ，是会失败的，因为它在<code>IPV4</code>中表示的是无效的<strong>目标地址</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ping 0.0.0.0</span><br><span class="line">PING 0.0.0.0 (0.0.0.0): 56 data bytes</span><br><span class="line">ping: sendto: No route to host</span><br><span class="line">ping: sendto: No route to host</span><br></pre></td></tr></table></figure>
+<p>但它还是很有用处的，回想下，我们启动服务器的时候，一般会 <code>listen</code> 一个 IP 和端口，等待客户端的连接。</p>
+<p>如果此时 <code>listen</code> 的是本机的 <code>0.0.0.0</code> , 那么它表示本机上的<strong>所有IPV4地址</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/* Address to accept any incoming messages. */</span><br><span class="line">#define    INADDR_ANY      ((unsigned long int) 0x00000000) /* 0.0.0.0   */</span><br></pre></td></tr></table></figure>
+<p>举个例子。刚刚提到的 <code>127.0.0.1</code> 和 <code>192.168.31.6</code> ，都是本机的IPV4地址，如果监听 <code>0.0.0.0</code> ，那么用上面两个地址，都能访问到这个服务器。</p>
+<p>当然， 客户端 <code>connect</code> 时，不能使用 <code>0.0.0.0</code> 。必须指明要连接哪个服务器IP。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><code>127.0.0.1</code> 是<strong>回环地址</strong>。<code>localhost</code>是<strong>域名</strong>，但默认等于 <code>127.0.0.1</code>。</li>
+<li><code>ping</code> 回环地址和 <code>ping</code> 本机地址，是一样的，走的是<strong>lo0 “假网卡”</strong>，都会经过网络层和数据链路层等逻辑，最后在快要出网卡前<strong>狠狠拐了个弯</strong>， 将数据插入到一个<strong>链表</strong>后就<strong>软中断</strong>通知 <strong>ksoftirqd</strong> 来进行<strong>收数据</strong>的逻辑，<strong>压根就不出网络</strong>。所以断网了也能 <code>ping</code> 通回环地址。</li>
+<li>如果服务器 <code>listen</code> 的是 <code>0.0.0.0</code>，那么此时用<code>127.0.0.1</code>和本机地址<strong>都可以</strong>访问到服务。</li>
+</ul>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>最近工作上的事情太忙，本来就黑的黑眼圈，就更黑了，鸽了大家这么久实在不好意思哈。</p>
+<p>欢迎大家加我微信（公众号里右下角“联系我”），互相围观朋友圈砍一刀啥的哈哈。</p>
+<p>如果文章对你有帮助，看下文章底部右下角，做点正能量的事情（<strong>点两下</strong>）支持一下。（<strong>疯狂暗示，拜托拜托，这对我真的很重要！</strong>）</p>
+<p>我是小白，我们下期见。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>《127.0.0.1 之本机网络通信过程知多少 ?！》—— 推荐关注飞哥的《开发内功修炼》</p>
+<h3 id="文章推荐："><a href="#文章推荐：" class="headerlink" title="文章推荐："></a>文章推荐：</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&amp;mid=2247484884&amp;idx=1&amp;sn=04c75f9bd29b7f9ac8e6bf3a804b12f6&amp;scene=21#wechat_redirect">动图图解！既然IP层会分片，为什么TCP层也还要分段？</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&amp;mid=2247484769&amp;idx=1&amp;sn=4d813bdf0977b3415db8faf4645ee216&amp;scene=21#wechat_redirect">动图图解！GMP模型里为什么要有P？背后的原因让人暖心</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&amp;mid=2247484725&amp;idx=1&amp;sn=63941cdb8ba8961457ae7667eed84448&amp;scene=21#wechat_redirect">i/o timeout，希望你不要踩到这个net/http包的坑</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&amp;mid=2247484666&amp;idx=1&amp;sn=8934b34eed16f52160724759f91c50cb&amp;scene=21#wechat_redirect">妙啊! 程序猿的第一本互联网黑话指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&amp;mid=2247483874&amp;idx=1&amp;sn=fa24dbed4709e5bf3f876f2c38351b49&amp;scene=21#wechat_redirect">程序员防猝死指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&amp;mid=2247484695&amp;idx=1&amp;sn=11c0505769ef91e8a7bcc8ee5c27559a&amp;scene=21#wechat_redirect">我感觉，我可能要拿图灵奖了。。。</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&amp;mid=2247483794&amp;idx=1&amp;sn=0b617bf9acffc17afa5b3278d3d32eef&amp;scene=21#wechat_redirect">给大家丢脸了，用了三年golang，我还是没答对这道内存泄漏题</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&amp;mid=2247484204&amp;idx=1&amp;sn=0e83aabb2a48570b5bec563a777f4d26&amp;scene=21#wechat_redirect">硬核！漫画图解HTTP知识点+面试题</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&amp;mid=2247483874&amp;idx=1&amp;sn=fa24dbed4709e5bf3f876f2c38351b49&amp;scene=21#wechat_redirect">TCP粘包 数据包：我只是犯了每个数据包都会犯的错 |硬核图解</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwMDAxNjU4Mg==&amp;mid=2247484640&amp;idx=1&amp;sn=9c6fcd4c5973278e401188f32b54be97&amp;scene=21#wechat_redirect">硬核图解！30张图带你搞懂！路由器，集线器，交换机，网桥，光猫有啥区别？</a></li>
+</ul>
+<h6 id="别说了，一起在知识的海洋里呛水吧"><a href="#别说了，一起在知识的海洋里呛水吧" class="headerlink" title="别说了，一起在知识的海洋里呛水吧"></a>别说了，一起在知识的海洋里呛水吧</h6><p>关注公众号:【golang小白成长记】</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/mmbiz_gif/FmVWPHrDdnkr3eLdxxIK0eujAOibyGS3aCw1CuXvibnf5MBmZXlC357jXciaUiaOINA5oib3861KQRHyyPib0SfC6rrQ/640?wx_fmt=gif&amp;tp=wxpic&amp;wxfrom=5&amp;wx_lazy=1" alt="图片"></p>
+<p>图解网络30</p>
+<p>图解网络 · 目录</p>
+<p>上一篇动图图解！既然IP层会分片，为什么TCP层也还要分段？下一篇连接一个 IP 不存在的主机时，握手过程是怎样的？</p>
+<p>阅读 6229</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="http://mmbiz.qpic.cn/sz_mmbiz_png/icMUEqOiagpkjR3okpkxcluqqC9PTLurtIpBZENNG06BHUtpz3uV4wH3sDU1PXBKyGaqdcwgjWia1FyiaPTt134eDA/300?wx_fmt=png&amp;wxfrom=18" alt="img"></p>
+<p>小白debug</p>
+<p>分享收藏2991</p>
+<p>喜欢此内容的人还喜欢</p>
+<p>一个例子，给你讲透典型的Go并发控制</p>
+<p>我关注的号</p>
+<p>小白debug</p>
+<p>不喜欢</p>
+<p>不看的原因</p>
+<p>确定</p>
+<ul>
+<li>内容低质</li>
+<li>不看此公众号内容</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/icMUEqOiagpkjgXHP2svSvOPAnPvTsPYDVVZAs3A2OJacqkT66o1RkD2ibEqQzRWiaqekbn1zss50W6tsYJPht2zCA/0?wx_fmt=jpeg" alt="img"></p>
+<p>几个祖传代码不遵守就想骂的代码规范</p>
+<p>我关注的号</p>
+<p>小白debug</p>
+<p>不喜欢</p>
+<p>不看的原因</p>
+<p>确定</p>
+<ul>
+<li>内容低质</li>
+<li>不看此公众号内容</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/icMUEqOiagpkiakK4227JknNMWElArqY8FpOeeCVd6orviaptTp8lIzUHzT4ca0upl7lDhPuEKLmDUgNY4rEycsicicA/0?wx_fmt=jpeg" alt="img"></p>
+<p>RocketMQ 是什么？它的架构是怎么样的？和 Kafka 又有什么区别？</p>
+<p>我关注的号</p>
+<p>小白debug</p>
+<p>不喜欢</p>
+<p>不看的原因</p>
+<p>确定</p>
+<ul>
+<li>内容低质</li>
+<li>不看此公众号内容</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/icMUEqOiagpkj3jnyXbbAvECNicWoT0rk0xRaOynudfCUjO8wrOzVat6mzH6G7FkFHGv2S0lAXnXeW1JS0EB5BawQ/0?wx_fmt=jpeg" alt="img"></p>
+<p>复制搜一搜分享收藏划线</p>
+<p>人划线</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://buhaotao.com">Orange🍊🍊🍊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://buhaotao.com/2024/05/30/2024-5-30-127-0-0-1%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E4%B8%8D%E7%94%A8%E7%BD%91%E5%B0%B1%E8%83%BDping/">http://buhaotao.com/2024/05/30/2024-5-30-127-0-0-1%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E4%B8%8D%E7%94%A8%E7%BD%91%E5%B0%B1%E8%83%BDping/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://buhaotao.com" target="_blank">Taotaozi-Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%85%AB%E8%82%A1%E6%96%87/">八股文</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a></div><div class="post_share"><div class="social-share" data-image="https://source.fomal.cc/img/default_cover_5.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/05/24/2024-5-24-mysql%E5%85%AB%E8%82%A1%E6%96%87/" title="整理的八股文"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://source.fomal.cc/img/default_cover_2.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">整理的八股文</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/24/2024-5-24-mysql%E5%85%AB%E8%82%A1%E6%96%87/" title="整理的八股文"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://source.fomal.cc/img/default_cover_2.webp" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2024-05-24</div><div class="title">整理的八股文</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/%5Cimages%5C%E9%BB%91%E5%A1%94.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Orange🍊🍊🍊</div><div class="author-info__description">博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/eatsomeorange"><i></i><span>🛴前往小家..</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/eatsomeorange" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:admin@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客-orange</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AC%E6%A0%B8%E5%9B%BE%E8%A7%A3%EF%BC%81%E6%96%AD%E7%BD%91%E4%BA%86%EF%BC%8C%E8%BF%98%E8%83%BDping%E9%80%9A-127-0-0-1-%E5%90%97%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">硬核图解！断网了，还能ping通 127.0.0.1 吗？为什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF127-0-0-1"><span class="toc-text">什么是127.0.0.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-ping"><span class="toc-text">什么是 ping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E5%8F%91%E6%95%B0%E6%8D%AE%E5%92%8Cping%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">TCP发数据和ping的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%96%AD%E7%BD%91%E4%BA%86%E8%BF%98%E8%83%BD-ping-%E9%80%9A-127-0-0-1"><span class="toc-text">为什么断网了还能 ping 通 127.0.0.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ping%E5%9B%9E%E7%8E%AF%E5%9C%B0%E5%9D%80%E5%92%8Cping%E6%9C%AC%E6%9C%BA%E5%9C%B0%E5%9D%80%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-text">ping回环地址和ping本机地址有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#127-0-0-1-%E5%92%8C-localhost-%E4%BB%A5%E5%8F%8A-0-0-0-0-%E6%9C%89%E5%8C%BA%E5%88%AB%E5%90%97"><span class="toc-text">127.0.0.1 和 localhost 以及 0.0.0.0 有区别吗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-text">最后</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E6%8E%A8%E8%8D%90%EF%BC%9A"><span class="toc-text">文章推荐：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%AB%E8%AF%B4%E4%BA%86%EF%BC%8C%E4%B8%80%E8%B5%B7%E5%9C%A8%E7%9F%A5%E8%AF%86%E7%9A%84%E6%B5%B7%E6%B4%8B%E9%87%8C%E5%91%9B%E6%B0%B4%E5%90%A7"><span class="toc-text">别说了，一起在知识的海洋里呛水吧</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By Orange🍊🍊🍊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.8/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script defer src="/js/universe.js"></script><canvas id="universe"></canvas><script defer src="/js/light.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="30" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-nest.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="http://buhaotao.com/categories/JAVA/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 橘子のJAVA (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://buhaotao.com/categories/算法/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🎮 橘子の算法 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><a class="magnet_link_more"  href="http://buhaotao.com/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #69e8f2}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://source.fomal.cc/img/default_cover_43.webp);"> <a class="categoryBar-list-link" href="categories/JAVA/">JAVA</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">这是java</span></li><li class="categoryBar-list-item" style="background:url(https://source.fomal.cc/img/default_cover_44.webp);"> <a class="categoryBar-list-link" href="categories/算法/">算法</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">这是算法</span></li><li class="categoryBar-list-item" style="background:url(https://source.fomal.cc/img/default_cover_45.webp);"> <a class="categoryBar-list-link" href="categories/零碎/">零碎</a><span class="categoryBar-list-count">4</span><span class="categoryBar-list-descr">零碎</span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var gaud_map_key = 'e2b04289e870b005374ee030148d64fd&s=rsv3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'true';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/05/20/2024-5-20-markdown/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://source.fomal.cc/img/default_cover_10.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-05-20</span><a class="blog-slider__title" href="2024/05/20/2024-5-20-markdown/" alt="">Markdown语法与外挂标签写法汇总</a><div class="blog-slider__text">🥧本文汇总Markdown格式以及外挂标签在网页端的渲染效果，可作为文档进行查询</div><a class="blog-slider__button" href="2024/05/20/2024-5-20-markdown/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/05/21/2024-5-21-redis/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://source.fomal.cc/img/default_cover_2.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-05-21</span><a class="blog-slider__title" href="2024/05/21/2024-5-21-redis/" alt="">Redis启动相关知识</a><div class="blog-slider__text">🥧本文汇总为作业一天学习总结</div><a class="blog-slider__button" href="2024/05/21/2024-5-21-redis/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/05/30/2024-5-30-127-0-0-1为什么能不用网就能ping/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://source.fomal.cc/img/default_cover_5.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-05-30</span><a class="blog-slider__title" href="2024/05/30/2024-5-30-127-0-0-1为什么能不用网就能ping/" alt="">为什么不用网就能ping127.0.0.1</a><div class="blog-slider__text">🥧本文汇总为作业一天学习总结</div><a class="blog-slider__button" href="2024/05/30/2024-5-30-127-0-0-1为什么能不用网就能ping/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/05/24/2024-5-24-mysql八股文/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://source.fomal.cc/img/default_cover_2.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-05-24</span><a class="blog-slider__title" href="2024/05/24/2024-5-24-mysql八股文/" alt="">整理的八股文</a><div class="blog-slider__text">🥧本文汇总为作业一天学习总结</div><a class="blog-slider__button" href="2024/05/24/2024-5-24-mysql八股文/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/05/18/2024-5-18-第二篇文章/" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://source.fomal.cc/img/default_cover_6.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-05-18</span><a class="blog-slider__title" href="2024/05/18/2024-5-18-第二篇文章/" alt="">第二篇文章</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" href="2024/05/18/2024-5-18-第二篇文章/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js"></script><script data-pjax>
+  function gitcalendar_injector_config(){
+      var parent_div_git = document.getElementById('gitZone');
+      var item_html = '<div class="recent-post-item" id="gitcalendarBar" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      console.log('已挂载gitcalendar')
+      }
+
+    if( document.getElementById('gitZone') && (location.pathname ==='/about/'|| '/about/' ==='all')){
+        gitcalendar_injector_config()
+        GitCalendarInit("https://gitcalendar.fomal.cc/api?eatsomeorange",['#d9e0df', '#c6e0dc', '#a8dcd4', '#9adcd2', '#89ded1', '#77e0d0', '#5fdecb', '#47dcc6', '#39dcc3', '#1fdabe', '#00dab9'],'eatsomeorange')
+    }
+  </script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body></html>
